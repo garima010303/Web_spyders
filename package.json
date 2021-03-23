@@ -1,0 +1,23 @@
+{
+  "name": "web_spyders",
+  "version": "1.0.0",
+  "description": "Xplore'21",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garima010303/Web_spyders.git"
+  },
+  "author": "Adarsh Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garima010303/Web_spyders/issues"
+  },
+  "homepage": "https://github.com/garima010303/Web_spyders#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

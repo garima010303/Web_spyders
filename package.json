@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/garima010303/Web_spyders#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }

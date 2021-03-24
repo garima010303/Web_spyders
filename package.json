@@ -19,6 +19,8 @@
   "homepage": "https://github.com/garima010303/Web_spyders#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemailer": "^6.5.0",
+    "mongodb": "^3.6.5"
   }
 }

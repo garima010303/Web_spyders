@@ -50,7 +50,7 @@ app.post("/notify", (req, res) => {
   req.body["longmax"] = parseFloat(req.body["longmax"]);
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db("freefridge");
+    var dbo = db.db("job");
     
     dbo.collection("reminder").insertOne(req.body, function (err, res) {
       if (err) throw err;
@@ -68,7 +68,7 @@ var url =process.env.URL;
 function addLocation(locat) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db("freefridge");
+    var dbo = db.db("job");
     dbo.collection("location").insertOne(locat, function (err, res) {
       if (err) throw err;
       console.log("Location updated");
@@ -80,7 +80,7 @@ function addLocation(locat) {
 function read(latitude, longitude, precisionLength,f=()=>{}) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db("freefridge");
+    var dbo = db.db("job");
 
     let precisionlat = precisionLength / 111.32;
     precisionLong =precisionLength / ((400075 * Math.cos((latitude * 2 * Math.PI) / 360)) / 360);
@@ -102,7 +102,7 @@ var query={$and:[{latitude:{$gt:latmin}},{latitude:{$lt:latmax}},{longitude:{$gt
 function deleteById(id) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db("freefridge");
+    var dbo = db.db("job");
     var myquery = { _id: ObjectID(id) };
     dbo.collection("location").deleteOne(myquery, function (err, obj) {
       if (err) throw err;
@@ -114,7 +114,7 @@ function deleteById(id) {
 function checkReminder(latdonor,londonor) {
   MongoClient.connect(url,(err,db)=>{
     if (err) throw err;
-    let dbo=db.db("freefridge")
+    let dbo=db.db("job")
     // let query={}
     let query={$and:[{latmin:{$lt:latdonor}},{longmin:{$lt:londonor}},{latmax:{$gt:latdonor}},{longmax:{$gt:londonor}}]};
     dbo.collection("reminder").find(query).toArray(function (err, result) {
@@ -128,7 +128,7 @@ function checkReminder(latdonor,londonor) {
         //deleting reminder now
         {MongoClient.connect(url, function (err, db) {
           if (err) throw err;
-          var dbo = db.db("freefridge");
+          var dbo = db.db("job");
           var myquery = { _id: ObjectID(result[0]['_id']) };
           dbo.collection("reminder").deleteOne(myquery, function (err, obj) {
             if (err) throw err;

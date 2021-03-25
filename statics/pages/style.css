@@ -1,4 +1,5 @@
-﻿a:link,
+﻿
+a:link,
 a:hover,
 a:active,
 a:visited {
@@ -14,6 +15,14 @@ a:hover {
 
 .contain {
     width: 100%;
+}
+
+.row__inner {
+    transition: 450ms transform;
+    font-size: 0;
+    white-space: nowrap;
+    margin: 70.3125px 0;
+    padding-bottom: 10px;
 }
 .tile {
     position: relative;

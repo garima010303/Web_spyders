@@ -16,7 +16,6 @@ a:hover {
 .contain {
     width: 100%;
 }
-
 .row__inner {
     transition: 450ms transform;
     font-size: 0;

@@ -7,7 +7,7 @@ require('dotenv').config()
 
 const app = express();
 const server = http.createServer(app);
-app.use(express.static(path.join(__dirname, "statics")));
+app.use(express.static(__dirname));
 
 app.use(
   express.urlencoded({
@@ -23,7 +23,7 @@ app.post("/donor.htm", (req, res) => {
   req.body["amount"] = parseFloat(req.body["amount"]);
   console.log(req.body,'from /donor');
   addLocation(req.body);
-  res.sendFile("donor.htm", { root: "statics" });
+  res.sendFile("thankyou.html", { root: "./" });
   checkReminder( req.body["latitude"],req.body["longitude"])
 });
 app.post("/distributors",(req,res)=>{
